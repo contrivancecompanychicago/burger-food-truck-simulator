@@ -50,7 +50,7 @@ var menuBurgers = [
   },
   {
     name: "Vegan Burger",
-    ingredients: ["lettuce", "meat", "sauce", "lettuce"],
+    ingredients: ["lettuce", "soy meat", "sauce", "lettuce"],
     stages: [5, 6, 7, 8, 9, 10]
   },
   {
@@ -107,7 +107,8 @@ function time(seconds) {
     if (i > 0) {
       $(".time").html(`${i} seconds remaining`);
     } else {
-      alert("Game Over, please start a new game");
+      alert(`Game Over. Your score for this playthrough was ${totalScore} points. Please start a new game`);
+      this.orderSelected.ingredients = undefined
       $(".burger").empty();
       $(".side").empty();
       $(".items").empty();
@@ -123,7 +124,6 @@ function createLevel() {
 
   switch (this.level) {
     case 1:
-    totalScore = 0;
       $(".items").empty();
       for (var i = 0; i < 4; i++) {
         var itemSelected = randomSelector(menuBurgers, 1);
@@ -244,6 +244,8 @@ function createLevel() {
 }
 
 function startGame() {
+  totalScore = 0;
+  $(".score").html(`${totalScore} points`);
   this.level = 1;
   createLevel();
   makeOrder();
@@ -251,6 +253,8 @@ function startGame() {
 }
 
 function startBonusGame() {
+  totalScore = 0;
+  $(".score").html(`${totalScore} points`);
   this.level = 11;
   createLevel();
   makeOrder();
@@ -322,6 +326,12 @@ document.onkeyup = function(e) {
     case "KeyL":
       orderIngredients.push("lettuce");
       $(".burger").prepend($("<div class='salad'>lettuce</div>"));
+
+      break;
+
+      case "KeyY":
+      orderIngredients.push("soy meat");
+      $(".burger").prepend($("<div class='meat'>soy meat</div>"));
 
       break;
 
