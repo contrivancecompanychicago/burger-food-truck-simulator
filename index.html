@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="burgertruck.js"></script>
+    <title>Burger Foodtruck Simulator</title>
+  </head>
+  <body>
+    <div class="presentation">
+      <div class="text-box">
+        <p>
+          Hi! Welcome to my Burger Foodtruck Simulator. I've made this project
+          as part of my journey on Ironhack's São Paulo/ Brazilpart-time web
+          development course. You can find information about the project on its
+          Github Page here.
+        </p>
+        <p>
+          Now let's get to business. Once you click on the "Start Game" button,
+          you will start the clock and you will receive a couple of orders. To
+          fulfill an order, you need to press the keyboard for the ingredients.
+          The ingredients will start to show on the screen, once you feel that
+          you are correct, press "Enter" to deliver the order.
+        </p>
+        <div id="button">Start Game!</div>
+
+        <ul>
+          <h2>For side menu:</h2>
+          <li>Press "1" to fill a glass of Coke</li>
+          <li>Press "2" to fill a glass of Pink Lemonade</li>
+          <li>Press "3" to fill desert glass of Sundae</li>
+          <li>Press "4" to deliver Fries</li>
+          <br />
+          <h2>For the burger ingredients:</h2>
+          <li>Press "b" to place a bun</li>
+          <li>Press "m" to place a meat</li>
+          <li>Press "c" to place a slice of cheese</li>
+          <li>Press "k" to place a slice of bacon</li>
+          <li>Press "s" to place salad</li>
+          <li>Press "u" to place a our special sauce</li>
+          <li>Press "l" to place a leaf of lettuce</li>
+        </ul>
+      </div>
+    
+
+    <div class="text-box">
+      <!-- Order List -->
+      <div class="panel">
+        <h2>Orders</h2><div class="time"></div>
+        <ol class="items"></ol>
+      </div>
+      <!-- End Order List -->
+
+      <div class="burger"></div>
+      <div class="side"></div>
+    </div>
+  </div>
+  </body>
+</html>
