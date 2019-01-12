@@ -80,12 +80,31 @@ function randomSelector(menu, stage) {
 
 var intervalId = null;
 
+var totalScore = 0;
+
+function score () {
+  var record = (i/originalTime) * 100;
+
+  if (record > 90) {
+    totalScore += 1000
+  } else if (90 > record > 80) {
+    totalScore += 800
+  } else if (80 > record > 50) {
+    totalScore += 500
+  } else {
+    totalScore += 200
+  }
+}
+
+var originalTime = 0;
+var i = 0;
+
 function time(seconds) {
   clearInterval(intervalId);
-  var i = seconds;
+  originalTime = seconds;
+  i = seconds;
   intervalId = setInterval(function() {
     if (i > 0) {
-      console.log(i);
       $(".time").html(`${i} seconds remaining`);
     } else {
       alert("Game Over, please start a new game");
@@ -104,6 +123,7 @@ function createLevel() {
 
   switch (this.level) {
     case 1:
+    totalScore = 0;
       $(".items").empty();
       for (var i = 0; i < 4; i++) {
         var itemSelected = randomSelector(menuBurgers, 1);
@@ -212,11 +232,11 @@ function createLevel() {
       break;
     case 11:
       $(".items").empty();
-      for (var i = 0; i < 8; i++) {
+      $("ol").append("<li>" + "GRILLED CHEESE FRENZY! Deliver as many Grilled Cheese as you can!!! GO GO GO!!!" + "</li>");
+      for (var i = 0; i < 1000; i++) {
         var itemSelected = randomSelector(menuBurgers, 11);
         var item = new Order(itemSelected.name, itemSelected.ingredients);
         this.orders.push(item);
-        $("ol").append("<li>" + this.orders[i].name + "</li>");
       }
       time(30);
       break;
@@ -225,6 +245,13 @@ function createLevel() {
 
 function startGame() {
   this.level = 1;
+  createLevel();
+  makeOrder();
+  getNewOrder();
+}
+
+function startBonusGame() {
+  this.level = 11;
   createLevel();
   makeOrder();
   getNewOrder();
@@ -241,6 +268,8 @@ function getNewOrder() {
     getNewOrder();
   }
 }
+
+
 
 function makeOrder() {
   this.orderIngredients = [];
@@ -303,6 +332,8 @@ document.onkeyup = function(e) {
           return element === orderSelected.ingredients[index];
         })
       ) {
+        score ();
+        $(".score").html(`${totalScore} points`);
         orderSelected.status = true;
         orderIngredients = [];
         toStroke++;
@@ -327,5 +358,8 @@ var toStroke = -1;
 $(document).ready(function() {
   $("#button").click(function() {
     startGame();
+  });
+  $("#buttonBonus").click(function() {
+    startBonusGame();
   });
 });

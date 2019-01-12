@@ -4,13 +4,13 @@ A typing game were you recieve some orders you need to fulfill.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for testing purposes.
 
 ### Installing
 
-1 - Clone or download
-2 - Open "index.html"
-3 - Follow the instructions!
+1. Clone or download
+2. Open "index.html"
+3. Follow the instructions!
 
 For the order of the ingredients of each type of burger, please refer to the list bellow: 
 ```
