@@ -38,7 +38,7 @@ ingredients order: ["bread", "cheese", "bread"]
 
 ## Built With
 
-* JavaScript
+* JavaScript ES5
 * [jQuery](https://jquery.com/) - For DOM Manipulation
 
 ## Authors
